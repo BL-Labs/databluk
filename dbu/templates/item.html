@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block breadcrumb_nav %} 
+<div class="second-nav main-bg grid_61 center-item">
+    <nav role="navigation">
+                    <div class="menu">           
+                                <a href="/{{ collection }}" class="action-button">
+                                    <span class="icon icon-left icon-sml sml-lft"></span>
+                                    <span class="action-text">{{ collection }}</span>
+                                </a>
+                                       
+                    </div>
+    </nav>
+</div>
+{% endblock %}
+{% block page_title_top %}
+  {{ macros.pagetitle(title, path) }}
+{% endblock %}
+
+{% block content %}
+{% if itemimg %}
+  {{ macros.pageimage(itemimg, itemimgcaption) }}
+{% endif %}
+
+{{ macros.initial_para(dcdescription) }}
+{{ macros.basic_para(usage) }}
+{{ macros.filelist(filelist) }}
+
+{% if curator %}
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+        <aside class="rh-column grid_20 ">
+                
+        <div class="links-block clearfix">
+            {{ macros.biblio(data) }}
+        </div>
+
+        </aside>
+{% endblock %}

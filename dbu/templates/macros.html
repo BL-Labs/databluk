@@ -1,0 +1,61 @@
+{% macro initial_para(text) -%}
+ <div class="text-block p-l-1col">
+
+            <p class="standfirst">{{ text }}</p>
+ </div>
+{%- endmacro %}
+
+{% macro biblio(data) -%}
+  <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
+    <dl>        
+        <dt>Full title<span>:&nbsp;</span></dt>              
+        <dd>{{ data['title'] }}</dd>
+        <dt>Dataset creator<span>:&nbsp;</span></dt>              
+        <dd>{{ data['creator'] }}</dd>
+        <dt>Dataset publisher(s)<span>:&nbsp;</span></dt>              
+        <dd>{{ data['publisher'] }}</dd>
+        <dt>Dataset date<span>:&nbsp;</span></dt>              
+        <dd>{{ data['date'] }}</dd>
+        <dt>Resource type<span>:&nbsp;</span></dt>              
+        <dd>{{ data['format'] }}</dd>
+        <dt>Licence:<span>:&nbsp;</span></dt>
+        <dd>{{ data['licence'] }}</dd>
+    </dl>             
+</div>
+{%- endmacro %}
+
+<!-- 608px x 342px --!>
+{% macro pageimage(imgurl, caption) -%}
+<div id="img-viewer-block_1" class="image-block img-viewer-block">
+     
+        <img src='../{{ imgurl }}'alt='{{ caption }}' >
+        <span class="action-text">{{ caption }}</span>
+</div>
+{%- endmacro %}
+
+{% macro pagetitle(title, pathway) -%}
+<div class="main-content-block page-sub-header clearfix">
+    <div class="main-content-block-inner cntr-blk grid_61 w-bg clearfix">
+        <div class="text-block grid_38 p-r-2col"> 
+          <div class="subtitle p-l-1col p-t-1col">
+{% for item in pathway %}
+            <a class="text-link" href="/{{item}}">{{item}}</a><span> / </span>
+{% endfor %}
+          </div>
+            <h1 class="page-title">
+                <span id="ctl03_commonpagetitle">{{ title }}</span>
+            </h1>        
+        </div>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro basic_para(text) -%}
+<div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+     <div class="text-block">
+{{ text }}
+     </div>
+</div>
+{%- endmacro %}
+{% macro filelist(flist) -%}
+{%- endmacro %}

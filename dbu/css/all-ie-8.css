@@ -1,0 +1,34 @@
+/* ! WARNING 
+ * Don't edit this css file directly
+ * it is generated using SASS
+ */
+/* line 8, scss/all-ie-8.scss */
+h1.page-title {
+  max-width: 592px;
+}
+
+/* line 10, scss/all-ie-8.scss */
+.search input[type="text"] {
+  width: 270px;
+}
+
+/* line 13, scss/all-ie-8.scss */
+.pnl .hit-spot {
+  background: transparent!important;
+}
+/* line 14, scss/all-ie-8.scss */
+.pnl .hit-spot:hover {
+  opacity: 0.15;
+}
+
+/* line 20, scss/all-ie-8.scss */
+.search-block .facet-search select {
+  width: 272px;
+}
+
+/* line 22, scss/all-ie-8.scss */
+#img-viewer .img-viewer-info {
+  width: 388px;
+  height: 75%;
+  padding-bottom: 32px;
+}

@@ -1,0 +1,831 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE HTML>
+<html class="no-js green" lang="en" >
+<head id="head" itemscope="" itemtype="http://schema.org/Organization">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="{{ rootoffset }}/css/desktop-styles.css" media="screen" />
+
+<link href="{{ rootoffset }}/css/all-print.css" rel="stylesheet" type="text/css" media="print" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ rootoffset }}/css/all-ie-7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ rootoffset }}/css/all-ie-8.css" /><![endif]-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style media="screen" type="text/css">
+    .desktop-site .main-page-img div {background-image: url('{{ rootoffset }}/backgrounds/pattern-bg-4.png');  }
+</style>
+<link rel="alternate stylesheet" type="text/css" href="{{ rootoffset }}/css/large-fonts.css" title="BRITISH LIBRARY Large Fonts Style">
+
+
+<meta charset="utf-8">
+<link rel="DC.rights copyright" href="http://www.bl.uk/aboutus/terms/index.html" />
+<meta name="e-GMS.accessibility" scheme="WCAG" content="Double-A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+<meta itemprop="name" content="The British Library">
+<meta itemprop="description" content="{{ dcdescription }}">
+<meta itemprop="logo" content="{{ rootoffset }}/images/bl_logo_100.gif">
+<link href="https://plus.google.com/+britishlibrary" rel="publisher" />
+<meta itemprop="telephone" content="+44 (0)330 333 1144">
+<meta itemprop="url" content="http://www.bl.uk">
+
+
+<meta name="DC.publisher" content="The British Library" />
+<meta name="DCTERMS.created" scheme="DCTERMS.W3CDTF" content="{{ dccreated }}" />
+
+<meta name="DC.identifier" content="{{ dcidentifier }}" />
+<meta property="og:url" content="{{ ogurl }}" />
+ 
+<meta name="DC.language" scheme="DCTERMS.ISO639-2" content="eng" />
+<meta name="eGMS.subject.category" scheme="GCL" content="Library and information services; Libraries" />
+<meta name="DC.description" content="{{ dcdescription }}" />
+<meta name="Description" content="{{ dcdescription }}" />
+<meta name="Keywords" content="{{ keywords }}" />
+<meta name="DC.subject" content="{{ keywords }}" />
+<meta name="DC.title" content="{{ title }}" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:site_name" content="The British Library" />
+<meta property="og:description" content="{{ dcdescription }}" />
+<meta property="og:image" content="http://www.bl.uk/britishlibrary/~/media/subjects%20images/digital%20scholarship/images/drawer.jpg" />
+
+
+
+<link rel="canonical" href="{{ canonicalurl }}" />
+
+<title>{{ title }}</title>
+
+<link rel="shortcut icon" href="{{ rootoffset }}/images/favicon.ico" type="image/x-icon" />
+<script src="{{ rootoffset }}/js/modernizr.js"></script>
+
+</head>
+
+<body class="desktop-site shelvesandspaces microsite content-page masthead-compress D7DA7FF3A3884A0FB37ED47B58AB6435 top-page-collectionguides">
+    
+        <!-- Google Tag Manager
+        <noscript>
+            <iframe src="//www.googletagmanager.com/ns.html?id=GTM-5MZR27"
+                height="0" width="0" style="display: none; visibility: hidden"></iframe>
+        </noscript>
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true;
+                j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5MZR27');
+        </script>
+        <!!-  End Google Tag Manager -->
+    
+    
+    <nav class="skip-to"><a href="#main">Skip to main content</a></nav>
+
+    <!-- WebEdit Placeholder used to render PageEditor Controls -->
+    
+    <div id="page-outer" class="clearfix">
+        <div class="main-page-img">
+            <div></div>
+
+        </div>
+        <div id="page-inner">
+            <header role="banner" id="header">
+                
+
+<div class="page-header-wrapper clearfix">
+    <div class="page-header grid_61 cntr-blk">
+        <div class="nav-wrapper">
+            <div id="main-navigation" class="">
+                <div id="site-logo">
+                    <a href="http://www.bl.uk">
+                        <img src="{{ rootoffset }}/images/bl_logo_100.gif" width="52" height="100" alt="THE BRITISH LIBRARY" /></a>
+                </div>
+                
+
+<div id="search-web-cat" role="search" aria-labelledby="site-search" class="grid_19">
+    <div id="search-web-cat-inner">
+        <div class="search">
+            <fieldset>
+                <legend>Search our website or catalogue</legend>
+                <label id="site-search" for="search-web-cat-input" class="search-input">Search our website or catalogue</label>
+                <div class="search-box-wrapper">
+                    <input type="text" value="Search our website" id="search-web-cat-input" class="searchbox">
+                    <button type="submit" id="searchGo" class="icon icon-sml main-bg hl-hover search-icon" value="Search" name="search"><span class="u-h">Search</span></button>
+                </div>
+                <div id="search-empty-message">Please enter your search term</div>
+                <input type="radio" checked="checked" value="website" name="searchoption" id="Radio1">
+                <label for="Radio1">Our website</label>
+                <input type="radio" value="catalogue" name="searchoption" id="Radio2">
+                <label for="Radio2">Main catalogue</label>
+            </fieldset>
+        </div>
+        <noscript>
+            <div id="searchpanelnoscript">
+                <form name="gs" method="GET" action="/website_search/search">
+                    <input type="text" name="q" size="32" maxlength="256" value="" />
+                    <input type="button" value="Search" id="Button1" name="searchGo" />
+                    <input type="hidden" name="filter" value="0">
+                    <input type="hidden" name="proxycustom" value="">
+                    <input type="hidden" name="proxycustom" value="">
+                    <input type="hidden" name="sort" value="date:D:L:d1">
+                    <input type="hidden" name="output" value="xml_no_dtd">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="hidden" name="oe" value="UTF-8">
+                    <input type="hidden" name="proxycustom" value="">
+                    <input type="hidden" name="entqr" value="0">
+                    <input type="hidden" name="ud" value="1">
+                    <input type="hidden" name="site" value="public">
+                    <input type="hidden" name="restrict" value="public">
+                    <input type="hidden" name="proxystylesheet" value="public">
+                    <input type="hidden" name="client" value="public">
+                </form>
+            </div>
+        </noscript>
+    </div>
+    <!-- #search-web-cat-inner -->
+</div>
+
+                               
+<nav role="navigation" >
+    <div id="primary-nav">
+        <ul class="primary-nav main-bg clearfix">
+        
+                <li class="primary-nav-item">
+                    <a href="#"><h3>Catalogues</h3></a>
+                    <ul class="grid_61">
+                        
+                                <li class="grid_14">
+                                    
+                                            <h4>Main catalogue</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://explore.bl.uk">Explore the British Library (56m items)</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Printed material</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/catalogues/bookbindings/">Bookbindings</a></li>
+                                                <li><a href="http://www.bl.uk/catalogues/bnb/index.html">British National Bibliography</a></li>
+                                                <li><a href="http://estc.bl.uk/F/?func=file&amp;file_name=login-bl-estc">English Short Title Catalogue</a></li>
+                                                <li><a href="http://www.bl.uk/catalogues/istc/index.html">Incunabula (early printing)</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Manuscripts</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://searcharchives.bl.uk/primo_library/libweb/action/search.do?dscnt=1&amp;fromLogin=true&amp;dstmp=1307975735037&amp;vid=IAMS_VU2&amp;fromLogin=true">Archives and manuscripts</a></li>
+                                                <li><a href="http://www.bl.uk/catalogues/illuminatedmanuscripts/welcome.htm">Illuminated manuscripts</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Other catalogues</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://indiafamily.bl.uk/ui/home.aspx">India Family History</a></li>
+                                                <li><a href="http://www.bl.uk/catalogues/photographyinbooks/welcome.htm">Photographically illustrated books</a></li>
+                                                <li><a href="http://www.bl.uk/catalogues/photographs/">Photographs</a></li>
+                                                <li><a href="http://cadensa.bl.uk/cgi-bin/webcat">Sound</a></li>
+                                                <li><a href="http://www.bl.uk/catalogues/evanion/">Victorian ephemera</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/findhelprestype/catblhold/all/allcat.html">Full list of catalogues</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                             
+                    </ul>    
+                </li>
+            
+                <li class="primary-nav-item">
+                    <a href="#"><h3>Collections</h3></a>
+                    <ul class="grid_61">
+                        
+                                <li class="grid_14">
+                                    
+                                            <h4>For researchers</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/subjects/">Subjects</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/index.html">More about our collections</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Digital collections</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/welcome/newspapers.html">Digitised British newspapers</a></li>
+                                                <li><a href="http://eap.bl.uk">Endangered archives</a></li>
+                                                <li><a href="http://www.bl.uk/treasures/festivalbooks/homepage.html">Festival books (1475-1700)</a></li>
+                                                <li><a href="http://idp.bl.uk/">International Dunhuang Project</a></li>
+                                                <li><a href="http://www.bl.uk/manuscripts/">Manuscripts</a></li>
+                                                <li><a href="http://sounds.bl.uk/">Sounds</a></li>
+                                                <li><a href="http://ethos.bl.uk">Theses</a></li>
+                                                <li><a href="http://www.webarchive.org.uk/ukwa/">UK Web Archive</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Subject resources</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://mbsportal.bl.uk">Management and business studies</a></li>
+                                                <li><a href="http://socialwelfare.bl.uk/">Social Welfare</a></li>
+                                                
+                                           </ul>
+                                        
+                                            <h4>In the Reading Rooms</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/reshelp/findhelprestype/eresblrr/eres.html">Electronic resources</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Collection blogs</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/americas/">Americas studies</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/asian-and-african/">Asian and African studies</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/english-and-drama/">English and drama</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/inspiredby/">Inspired by</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/digitisedmanuscripts/">Medieval manuscripts</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/socialscience/">Social science</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/sound-and-vision/">Sound and vision</a></li>
+                                                <li><a href="http://britishlibrary.typepad.co.uk/untoldlives/">Untold lives</a></li>
+                                                <li><a href="http://www.bl.uk/blogs/">Full list of blogs</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                             
+                    </ul>    
+                </li>
+            
+                <li class="primary-nav-item">
+                    <a href="#"><h3>Discover</h3></a>
+                    <ul class="grid_61">
+                        
+                                <li class="grid_14">
+                                    
+                                            <h4>Online exhibitions</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/onlinegallery/index.html">Online Gallery overview</a></li>
+                                                <li><a href="http://www.bl.uk/onlinegallery/virtualbooks/index.html">Turn the pages of our beautiful books</a></li>
+                                                <li><a href="http://www.bl.uk/onlinegallery/hightours/index.html">Highlights tour</a></li>
+                                                <li><a href="http://www.bl.uk/onlinegallery/sacredtexts/index.html">Sacred texts</a></li>
+                                                <li><a href="http://www.bl.uk/hebrew-manuscripts">Hebrew manuscripts</a></li>
+                                                <li><a href="http://www.bl.uk/takingliberties">Taking Liberties</a></li>
+                                                <li><a href="http://www.bl.uk/maps/">Georeferencer (maps)</a></li>
+                                                <li><a href="http://www.bl.uk/onlinegallery/onlineex/index.html">More online exhibitions</a></li>
+                                                <li><a href="http://www.bl.uk/onlinegallery/publicgalleries.html">Personal galleries</a></li>
+                                                <li><a href="http://www.bl.uk/ecards/">ecards</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Treasures in full</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/treasures/caxton/homepage.html">Caxton’s Chaucer</a></li>
+                                                <li><a href="http://codexsinaiticus.org/en/">Codex Sinaiticus</a></li>
+                                                <li><a href="http://www.bl.uk/treasures/gutenberg/homepage.html">Gutenberg Bible</a></li>
+                                                <li><a href="http://www.bl.uk/treasures/magnacarta/index.html">Magna Carta</a></li>
+                                                <li><a href="http://www.bl.uk/treasures/shakespeare/homepage.html">Shakespeare Quartos</a></li>
+                                                <li><a href="http://www.bl.uk/onlinegallery/virtualbooks/">Turning the Pages</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Learning</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/romantics-and-victorians">Discovering Literature</a></li>
+                                                <li><a href="http://www.bl.uk/learning/index.html">Learning at the Library</a></li>
+                                                <li><a href="http://www.bl.uk/learning/langlit/sounds/index.html">Accents and dialects</a></li>
+                                                <li><a href="http://www.bl.uk/learning/langlit/index.html">English language/literature</a></li>
+                                                <li><a href="http://www.bl.uk/learning/histcitizen/index.html">History</a></li>
+                                                <li><a href="http://www.bl.uk/learning/histcitizen/victorians/victorianhome.html">The Victorians</a></li>
+                                                <li><a href="http://www.bl.uk/learning/histcitizen/timeline/historytimeline.html">Timelines</a></li>
+                                                <li><a href="http://www.bl.uk/world-war-one">World War One</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Mobile</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/press-releases/2011/august/45000-books-to-browse-at-your-leisure-bibliolabs-and-the-british-library-launch-19th-century-histori">19th century books app</a></li>
+                                                <li><a href="http://sounds.bl.uk/Sound-Maps/UK-Soundmap">UK SoundMap</a></li>
+                                                
+                                           </ul>
+                                        
+                                            <h4>Podcasts and audio</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/podcasts/index.html">Our podcasts page</a></li>
+                                                <li><a href="http://itunes.apple.com/gb/podcast/british-library-podcasts/id174455610?ign-mpt=uo=4">Our podcasts on iTunes</a></li>
+                                                <li><a href="http://www.bl.uk/voices-of-science">Voices of Science</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                             
+                    </ul>    
+                </li>
+            
+                <li class="primary-nav-item">
+                    <a href="#"><h3>Services</h3></a>
+                    <ul class="grid_61">
+                        
+                                <li class="grid_14">
+                                    
+                                            <h4>Reading Rooms</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/readingrooms.html">Overview</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/loc/stp/opening/index.html#reading">Opening times</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/stp/register/stpregister.html">Register for a Reader Pass</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/stp/getting-started-at-bl/index.html">Guides to getting started</a></li>
+                                                <li><a href="https://myrequests.bl.uk/">My Reading Room requests</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/stp/stpancrasrr.html">St Pancras Reading Rooms</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/bspa/bostonspa.html">Boston Spa Reading Room</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Also at our buildings</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/bipc">Business &amp; IP Centre</a></li>
+                                                <li><a href="http://www.bl.uk/conferencecentre/index.html">Conference Centre</a></li>
+                                                <li><a href="http://www.bl.uk/whatson/planyourvisit/fooddrink/index.html">Food and drink</a></li>
+                                                <li><a href="http://www.bl.uk/learning/tarea/index.html">Learning programme</a></li>
+                                                <li><a href="http://www.bl.uk/whatson/planyourvisit/wifi/index.html">WiFi</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Online, by post, in print</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/aboutus/brandlicensing/index.html">Brand licensing</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/atyourdesk/transcription/transcriptionservice.html">Audio transcription</a></li>
+                                                <li><a href="http://www.bl.uk/on-demand">Document supply</a></li>
+                                                <li><a href="http://prints.bl.uk/">Fine art prints</a></li>
+                                                <li><a href="http://www.imagesonline.bl.uk/">Images Online (picture sales)</a></li>
+                                                <li><a href="http://www.bl.uk/imaging-services">Imaging services</a></li>
+                                                <li><a href="http://www.bl.uk/bibliographic/main.html">Metadata Services</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/atyourdesk/newscopy/micro/microfilm.html">Newspaper Microfilm Services</a></li>
+                                                <li><a href="http://shop.bl.uk">Online Shop</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/atyourdesk/permissions/permission.html">Permissions</a></li>
+                                                <li><a href="http://publishing.bl.uk/">Publishing</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Expert advice</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/bipc/advice/index.html">Business &amp; IP</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/stratpolprog/collectioncare/index.html">Collection care</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/stp/refteam/refteam/refcontacts.html">Reference team</a></li>
+                                                
+                                           </ul>
+                                        
+                                            <h4>For Authors</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/plr/index.html">Public Lending Right</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                             
+                    </ul>    
+                </li>
+            
+                <li class="primary-nav-item">
+                    <a href="#"><h3>Visiting</h3></a>
+                    <ul class="grid_61">
+                        
+                                <li class="grid_14">
+                                    
+                                            <h4>Sites opening times</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/loc/stp/opening/index.html">St Pancras</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/loc/bsp/index.html">Boston Spa</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Exhibitions and events</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/whatson/planyourvisit/openinghours/index.html">Opening times</a></li>
+                                                <li><a href="http://www.bl.uk/whats-on">What’s on</a></li>
+                                                <li><a href="http://www.bl.uk/events?eventsubtype=exhibition">Exhibitions</a></li>
+                                                <li><a href="http://www.bl.uk/events">Events</a></li>
+                                                <li><a href="http://www.bl.uk/events?eventsubtype=tour">Tours</a></li>
+                                                <li><a href="https://boxoffice.bl.uk/">Box Office</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Learning</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/learning/tarea/index.html">Workshops for schools</a></li>
+                                                <li><a href="http://www.bl.uk/learning/tarea/teachers/teachers.html">Teacher conferences</a></li>
+                                                <li><a href="http://www.bl.uk/learning/tarea/family/index.html">Family activities</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Reading Rooms</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/loc/stp/opening/index.html#reading">Opening times</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/stp/register/stpregister.html">Register for a Reader Pass</a></li>
+                                                <li><a href="http://www.bl.uk/reshelp/inrrooms/stp/getting-started-at-bl/index.html">Guides to getting started</a></li>
+                                                
+                                           </ul>
+                                        
+                                            <h4>Other facilities</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/bipc">Business &amp; IP Centre</a></li>
+                                                <li><a href="http://www.bl.uk/conferencecentre/index.html">Conference Centre</a></li>
+                                                <li><a href="http://www.bl.uk/whatson/planyourvisit/fooddrink/index.html">Food and drink</a></li>
+                                                <li><a href="http://www.bl.uk/whatson/planyourvisit/wifi/index.html">WiFi</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                             
+                    </ul>    
+                </li>
+            
+                <li class="primary-nav-item">
+                    <a href="#"><h3>About</h3></a>
+                    <ul class="grid_61">
+                        
+                                <li class="grid_14">
+                                    
+                                            <h4>About us</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/aboutus/index.html">Overview</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/index.html">Quick information</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/stratpolprog/index.html">Strategy, policy, programmes</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/annrep/index.html">Annual report</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/governance/index.html">Governance</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/supplying/index.html">Supplying the Library</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/foi/index.html">Freedom of information</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/stratpolprog/csr/index.html">Corporate Social Responsibility</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/contact/index.html">Contact us</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Jobs</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/careers/index.html">Careers</a></li>
+                                                <li><a href="http://www.bl.uk/careers/knowledge.html">Working at the Library</a></li>
+                                                <li><a href="https://britishlibrary.recruitment.northgatearinso.com/">Vacancies and how to apply</a></li>
+                                                
+                                           </ul>
+                                        
+                                            <h4>Support us</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://support.bl.uk/">Fundraising</a></li>
+                                                <li><a href="http://adoptabook.bl.uk/">Adopt a Book</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Keep in touch</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://forms.bl.uk/newsletters/index.aspx">Sign up for our e-newsletters</a></li>
+                                                <li><a href="http://www.bl.uk/blogs/">Full list of blogs</a></li>
+                                                <li><a href="http://www.facebook.com/britishlibrary">Find us on Facebook</a></li>
+                                                <li><a href="http://twitter.com/britishlibrary">Follow us on Twitter</a></li>
+                                                <li><a href="http://www.youtube.com/britishlibrary">Watch our YouTube channel</a></li>
+                                                <li><a href="https://plus.google.com/110023273010545193861/posts">Join us on Google+</a></li>
+                                                <li><a href="http://pinterest.com/britishlibrary">Find us on Pinterest</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                            
+                                <li class="grid_14">
+                                    
+                                            <h4>Press</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/press">Press and policy</a></li>
+                                                <li><a href="http://www.bl.uk/press-releases">Press releases</a></li>
+                                                
+                                           </ul>
+                                        
+                                            <h4>Help in languages other than English</h4>
+                                        
+                                            <ul>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/intvisitors/chinese.pdf">Chinese - 中文</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/intvisitors/arabic.pdf">Arabic - عربي </a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/intvisitors/french.pdf">French - Français</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/intvisitors/german.pdf">German - Deutsch</a></li>
+                                                <li><a href="http://www.bl.uk/aboutus/quickinfo/intvisitors/index.html">More</a></li>
+                                                
+                                           </ul>
+                                        
+                                </li>                        
+                             
+                    </ul>    
+                </li>
+            
+                <li class="primary-nav-item single-col-menu">
+                    <a href="#"><h3>Information for...</h3></a>
+                    <ul class="grid_14">
+                        <li><a href="http://www.bl.uk/reshelp/index.html">All researchers</a></li>
+                                        <li><a href="http://www.bl.uk/plr/index.html">Authors</a></li>
+                                        <li><a href="http://www.bl.uk/bipc/index.html">Entrepreneurs</a></li>
+                                        <li><a href="http://www.bl.uk/press">Journalists</a></li>
+                                        <li><a href="http://www.bl.uk/welcome/librarians.html">Librarians</a></li>
+                                        <li><a href="http://www.bl.uk/aboutus/highered/heoverview.html">People in higher education</a></li>
+                                        <li><a href="http://www.bl.uk/aboutus/legaldeposit/index.html">Publishers (legal deposit)</a></li>
+                                        <li><a href="http://www.bl.uk/subjects/science">Scientists</a></li>
+                                        <li><a href="http://www.bl.uk/socialsciences">Social Scientists</a></li>
+                                        <li><a href="http://www.bl.uk/learning/index.html">Teachers</a></li>
+                                         
+                    </ul>    
+                </li>
+            
+        </ul>
+    </div>
+</nav>
+
+
+
+
+ 
+
+
+            </div>
+        </div>
+
+        
+        <div class="masthead clearfix">
+            <div class="masthead-inner grid_59 clearfix p-l-1col p-r-1col p-t-1col p-b-1col highlight-bg masthead-hp">
+
+                <span class="title masthead-title highlight-bg">
+                    <span class="sp-category">
+                        
+                    </span>
+                    <span class="sp-name">
+                        
+                    </span>
+                    <span class="sp-subtitle">
+                        
+                    </span>
+                    <span id="ctl00_mastheadtitle">data.bl.uk</span>
+                    <!--<span>this is masthead-title</span> -->
+                </span>
+                
+            </div>
+        </div>
+{% block breadcrumb_nav %}{% endblock %}
+        
+
+    </div>
+</div>
+
+
+            </header>
+            <div class="main-content-wrapper" role="main" id="main">
+                <div id="contentstart" class="main-content">
+
+{% block page_title_top %}{% endblock %}
+
+<div class="main-content-block-inner grid_61 w-bg p-b-1col">
+    <article itemscope itemtype="http://schema.org/Article">
+	<div class="main-column grid_37 p-r-3col">
+		<div class="main-column-inner">
+{% block content %}{% endblock %}
+		</div><!-- MAIN-COL-INNER -->
+	</div><!-- MAIN-COL -->
+
+{% block sidebar %}{% endblock %}
+    </article>
+</div><!-- MAIN CONTENT INNER -->
+
+
+<div class="main-content-block  clearfix">
+    <div class="main-content-block-inner grid_61 dg-bg">
+        <div class="paddingControl01 p-l-1col grid_61">
+            
+        </div>
+        <div class="paddingControl01 grid_61">
+            <!-- added by DH -->
+            
+        </div>
+        <!-- added by DH -->
+    </div>
+</div>
+
+                    
+<div class="main-content-block clearfix">
+    <div class="main-content-block-inner w-bg cntr-blk g-t-border grid_61 clearfix p-t-2col p-b-2col">
+		<div class="social-block p-l-1col p-r-1col ">
+			
+			<div id="sociallinkstop" class="social-links-block f-right grid_32 p-l-1col">
+			<h2 class="block-title">Share this page</h2>
+                <div class="social-links-wrapper m-t-2col">
+                    <span class='st_sharethis_hcount' displaytext='ShareThis'></span>
+                    <span class='st_facebook_hcount' displaytext='Facebook'></span>
+                    <span class='st_twitter_hcount' displaytext='Tweet'></span>
+                    <span class='st_email_hcount' displaytext='Email'></span>
+                </div>
+                <a href="#" class="print-page text-link-with-icon m-t-1col">
+				<span class="icon icon-sml print-icon"></span><span class="action-text">Print this page</span>
+			</a><!-- .printpage -->
+			<p class="sml-txt">Please consider the environment before printing</p>
+			</div><!-- .sociallinkstop -->
+			<div class="form-block newsletter-block grid_24 f-left">
+	<div class="form-block-inner w-bg">
+		<div class="newsletter-signup-form">
+			<h2 class="block-title">British Library Newsletter</h2>
+			
+			<div class="newslettersignup-content">     
+				<form>    
+				
+				<fieldset>   
+				<legend>Subscribe to our free email newsletter for useful resources, latest news and events plus exclusive offers</legend>
+                <label for="email">Email</label>
+				<input type="email" id="email" name="email" value="" placeholder="Email address" required="required">
+				<a class="action-button" id="go_link" href="http://forms.bl.uk/newsletters/index.aspx">Subscribe</a>
+				<input type="hidden" id="linktext" value="Return to the What's on website">
+				<input type="hidden" id="nl" value="WhatsOn">
+                <input type="hidden" id="back" value="">  
+				</fieldset> 
+				</form>    
+			</div>
+		</div>
+	</div>
+</div>
+    	</div><!-- .social-block -->
+	</div><!-- .main-content-block-inner -->
+</div><!-- .main-content-block -->
+
+                    
+                </div>
+
+            </div>
+            <footer id="footer">
+                
+<div id="page-footer">
+ 
+
+    
+    <div class="footer-block sectional-footer clearfix vlg-bg">
+        <div class="footer-block-inner cntr-blk grid_61 p-t-2col p-b-2col">
+            
+            <div class="menu-block">
+                <ul class="footer-secondary-menu menu h-menu vert-sep">
+                    
+                </ul>
+            </div>
+            
+<div class="text-block p-l-1col">
+               
+</div>
+            
+        </div>
+    </div>
+    
+    <div class="footer-block dg-bg site-wide-footer">
+        <div class="footer-block-inner cntr-blk grid_59 cookie-msg clearfix p-t-1col prefix_1 suffix_1">
+            <div class="text-block">
+                <!--p>By using this site, you agree we can set and use cookies. For more details of these cookies and how to disable them, see our <a href="http://www.bl.uk/aboutus/terms/privacy/websites/cookies/index.html">cookie policy</a>.</p-->
+            </div>
+        </div>
+    </div>
+    <div class="footer-block dg-bg">
+        <div class="footer-block-inner cntr-blk grid_61 clearfix">
+            <div class="menu-block">
+                
+        <ul class="menu h-menu">
+            <li><a href="http://www.bl.uk/aboutus/terms/index.html">Terms of use</a></li>
+                 
+            <li><a href="http://www.bl.uk/aboutus/index.html">About the British Library</a></li>
+                 
+            <li><a href="http://www.bl.uk/aboutus/terms/privacy/index.html">Privacy</a></li>
+                 
+            <li><a href="http://www.bl.uk/aboutus/terms/privacy/websites/cookies/index.html">Cookies</a></li>
+                 
+            <li><a href="http://www.bl.uk/aboutus/accessibility/index.html">Accessibility</a></li>
+                 
+            <li><a href="http://www.bl.uk/aboutus/contact/index.html">Contact us</a></li>
+                 
+        </ul>
+
+            </div>
+            <!-- .menu-block -->
+            <div class="text-block p-l-1col">
+                <p class="sml-txt">All text is &copy; British Library Board and is available under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>, except where otherwise stated.</p>
+            </div>
+            <!-- text-block -->
+        </div>
+    </div>
+</div>
+<!-- #page-footer -->
+
+            </footer>
+        </div>
+    </div>
+
+    
+
+
+<script src="{{ rootoffset }}/js/all-scripts.js"></script>
+
+
+<script src="{{ rootoffset }}/js/desktop-scripts.js"></script>
+
+
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+var switchTo5x = true;
+stLight.options({ publisher: "ad1af46f-5d2b-4f49-aa8c-10f1ffaecf51", onhover: false, doNotHash: false, doNotCopy: false, hashAddressBar: false });
+</script>
+
+
+    <!-- Begin CMC v2.0 -->
+<script type="text/javascript">
+// <![CDATA[
+function sitestat(u){var d=document,l=d.location;ns_pixelUrl=u+"&ns__t="+(new Date().getTime());u=ns_pixelUrl+"&ns_c="+((d.characterSet)?d.characterSet:d.defaultCharset)+"&ns_ti="+escape(d.title)+"&ns_jspageurl="+escape(l&&l.href?l.href:d.URL)+"&ns_referrer="+escape(d.referrer);var m=u.lastIndexOf("&");if(u.length>2000&&m>=0){u=u.substring(0,m+1)+"ns_cut="+u.substring(m+1,u.lastIndexOf("=")).substring(0,40)}(d.images)?new Image().src=u:d.write('<'+'p><'+'img src="'+u+'" height="1" width="1" alt="*"/'+'><'+'/p>');};
+sitestat("http://uk.sitestat.com/bl/subjectsandservices/s?name=collection-guides.datasets-about-our-collections.page");
+// ]]>
+</script>
+<noscript><p><img src="http://uk.sitestat.com/bl/subjectsandservices/s?name={{ sitestatname }}" height="1" width="1" alt="*"/></p></noscript>
+<!-- End CMC -->
+
+
+
+
+</body>
+</html>

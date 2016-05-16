@@ -1,0 +1,56 @@
+/* ! WARNING 
+ * Don't edit this css file directly
+ * it is generated using SASS
+ */
+/* line 9, scss/all-ie-7.scss */
+.search input[type=text] {
+  width: 90%;
+}
+
+/* line 10, scss/all-ie-7.scss */
+h1.page-title {
+  max-width: 592px;
+}
+
+/* line 12, scss/all-ie-7.scss */
+.pnl .hit-spot {
+  background: transparent!important;
+}
+/* line 13, scss/all-ie-7.scss */
+.pnl .hit-spot:hover {
+  opacity: 0.15;
+}
+
+/* line 19, scss/all-ie-7.scss */
+.search-block .facet-search select {
+  width: 272px;
+}
+
+/* line 21, scss/all-ie-7.scss */
+#img-viewer .img-viewer-info {
+  width: 388px;
+  height: 75%;
+  padding-bottom: 32px;
+}
+
+/* line 23, scss/all-ie-7.scss */
+.w2col-img-pnl .pnl-inner {
+  width: 928px;
+}
+
+/* line 25, scss/all-ie-7.scss */
+.slides li {
+  float: left;
+}
+
+/* line 28, scss/all-ie-7.scss */
+.search-icon, .search-section button[type=submit] {
+  background-image: url(../images/bl-web-sprite.png) !important;
+  background-position: -301px -157px !important;
+  background-color: #1f1f1f!important;
+}
+
+/* line 34, scss/all-ie-7.scss */
+.search-section .search-icon, .search-section button[type=submit] {
+  background-position: -392px -56px !important;
+}
