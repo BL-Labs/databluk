@@ -5,7 +5,7 @@
                     <div class="menu">           
                                 <a href="/{{ collection }}" class="action-button">
                                     <span class="icon icon-left icon-sml sml-lft"></span>
-                                    <span class="action-text">{{ collection }}</span>
+                                    <span class="action-text">{{ dataset_collection[0] }}</span>
                                 </a>
                                        
                     </div>
@@ -18,12 +18,22 @@
 
 {% block content %}
 {% if itemimg %}
-  {{ macros.pageimage(itemimg, itemimgcaption) }}
+  {{ macros.item_pageimage(itemimg, itemimgcaption) }}
 {% endif %}
 
 {{ macros.initial_para(dcdescription) }}
 {{ macros.basic_para(usage) }}
-{{ macros.filelist(filelist) }}
+{% if contentnotes %}
+   <h3 class="block-title">Content Notes:</h3>
+{{ macros.basic_para(contentnotes) }}
+{% endif %}
+<hr/>
+<div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+     <div class="text-block">
+		<p class="standfirst">Due to the extreme sizes of some of the zip archives (often well in excess of 4GB), we recommend using a dedicated zip archive application, such as <a href="http://www.7-zip.org/">7-zip</a>, to open and extract these datasets.</p>
+		<p>For example, the built-in zip archive handling in Microsoft Windows (ie Right-click to 'Extract Here') is not designed to handle these sizes and will throw errors, even suggesting (falsely) that the archive is corrupt.</p>
+     </div>
+</div>
 
 {% if curator %}
 {% endif %}
@@ -35,7 +45,22 @@
                 
         <div class="links-block clearfix">
             {{ macros.biblio(data) }}
+{% if filename|length > 0 and filename[0] %}
+           <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
+             <h3 class="block-title">Download:</h3>
+{% for fname, fsize, format, licence, llink in zfiles %}
+               <ul class="menu">
+			   {% if llink[:4] == "http" %}
+		       <li><a href="{{ fname }}">{{ fname }}</a><span class="sml-txt d-b">{{ fsize }} {{ format }} - <a href="{{ llink }}">{{ licence }}</a></span><br/></li>
+			   {% else %}
+		       <li><a href="{{ fname }}">{{ fname }}</a><span class="sml-txt d-b">{{ fsize }} {{ format }} - {{ licence }}, {{ llink }}</span><br/></li>
+			   {% endif %}
+               </ul>
+{% endfor %}
+           </div>
+{% endif %}
+        <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
+           <h4>If you have any queries about this dataset or about this website, please email <a href="mailto:digitalresearch@bl.uk">digitalresearch@bl.uk</a>.</h4></div>
         </div>
-
         </aside>
 {% endblock %}

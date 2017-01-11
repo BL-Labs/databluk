@@ -1,7 +1,12 @@
 {% macro initial_para(text) -%}
  <div class="text-block p-l-1col">
-
-            <p class="standfirst">{{ text }}</p>
+{% for segment in text.split("\n") %}
+  {% if segment[:5] == text[:5] %}
+            <p class="standfirst">{{ segment }}</p>
+  {% else %}
+            <p class="text-block">{{ segment }}</p>
+  {% endif %}
+{% endfor %}
  </div>
 {%- endmacro %}
 
@@ -10,38 +15,60 @@
     <dl>        
         <dt>Full title<span>:&nbsp;</span></dt>              
         <dd>{{ data['title'] }}</dd>
+{% if data['doi'] %}
+        <dt>DOI<span>:&nbsp;</span></dt>              
+        <dd><a href="https://dx.doi.org/{{ data['doi'] }}">{{ data['doi'] }}</a></dd>
+{% endif %}
         <dt>Dataset creator<span>:&nbsp;</span></dt>              
         <dd>{{ data['creator'] }}</dd>
         <dt>Dataset publisher(s)<span>:&nbsp;</span></dt>              
         <dd>{{ data['publisher'] }}</dd>
         <dt>Dataset date<span>:&nbsp;</span></dt>              
         <dd>{{ data['date'] }}</dd>
-        <dt>Resource type<span>:&nbsp;</span></dt>              
-        <dd>{{ data['format'] }}</dd>
-        <dt>Licence:<span>:&nbsp;</span></dt>
-        <dd>{{ data['licence'] }}</dd>
+{% if data['contentdates'] %}
+        <dt>Range of years covered<span>:&nbsp;</span></dt>              
+        <dd>{{ data['contentdates'] }}</dd>
+{% endif %}
+{% if data['licence'] and False %}
+        <dt>Licence<span>:&nbsp;</span></dt><dd>
+{% for licencedata in data['licence'] %}
+{{ licencedata }} - <a href="{{ data['licencelink'] }}">What can I use it for?</a>,
+{% endfor %}
+{% endif %}
     </dl>             
-</div>
+  </div>
 {%- endmacro %}
 
 <!-- 608px x 342px --!>
-{% macro pageimage(imgurl, caption) -%}
+{% macro item_pageimage(imgurl, caption) -%}
 <div id="img-viewer-block_1" class="image-block img-viewer-block">
      
-        <img src='../{{ imgurl }}'alt='{{ caption }}' >
+        <img src='{{ rootoffset }}/images/{{ imgurl }}'alt='{{ caption }}' >
+        <span class="action-text">{{ caption }}</span>
+</div>
+{%- endmacro %}
+{% macro pageimage(imgurl, caption, rootoffset) -%}
+<div id="img-viewer-block_1" class="image-block img-viewer-block">
+     
+        <img src='{{ rootoffset }}/images/{{ imgurl }}'alt='{{ caption }}' >
         <span class="action-text">{{ caption }}</span>
 </div>
 {%- endmacro %}
 
-{% macro pagetitle(title, pathway) -%}
-<div class="main-content-block page-sub-header clearfix">
-    <div class="main-content-block-inner cntr-blk grid_61 w-bg clearfix">
-        <div class="text-block grid_38 p-r-2col"> 
+{% macro snipped_pathway(text) -%}
+{% if pathway %}
           <div class="subtitle p-l-1col p-t-1col">
 {% for item in pathway %}
             <a class="text-link" href="/{{item}}">{{item}}</a><span> / </span>
 {% endfor %}
           </div>
+{% endif %}
+{%- endmacro %}
+
+{% macro pagetitle(title, pathway) -%}
+<div class="main-content-block page-sub-header clearfix">
+    <div class="main-content-block-inner cntr-blk grid_61 w-bg clearfix">
+        <div class="text-block grid_38 p-r-2col standfirst"> 
             <h1 class="page-title">
                 <span id="ctl03_commonpagetitle">{{ title }}</span>
             </h1>        
@@ -53,9 +80,36 @@
 {% macro basic_para(text) -%}
 <div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
      <div class="text-block">
-{{ text }}
+{% for textline in text.split("\n") %}
+{{ textline }}<br/>
+{% endfor %}
      </div>
 </div>
 {%- endmacro %}
-{% macro filelist(flist) -%}
+
+{% macro dataset_desc(dset) -%}
+<div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+     <div class="text-block">
+        <h3><a href="{{ dset['canonicalurl'] }}">{{ dset['title'] }}</a></h3>
+        <p>{{ dset['dcdescription'].split("\n")[0] }}</p>
+{% if dset['data']['filename'] %}
+<p><a href="{{ dset['data']['filename'] }}">Download.</a> Licence:<a href="{{ dset['data']['usage terms'] }}">{{ dset['data']['licence'] }}</a></p>
+{% endif %} 
+{% if dset['data']['doi'] %}
+<p>DOI: {{ dset['data']['doi'] }}</p>
+{% endif %} 
+     </div>
+</div>
+{%- endmacro %}
+
+{% macro dataset_collection_desc(key, collections, boilerplate_text) -%}
+<div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+     <div class="text-block">
+{% if collections[key]|length == 1 %}
+        <h3><a href="/{{ key }}">{{ boilerplate_text[key] }}</a> - 1 dataset.</h3>
+{% else %}
+        <h3><a href="/{{ key }}">{{ boilerplate_text[key] }}</a> - {{ collections[key] | length }} datasets.</h3>
+{% endif %}
+     </div>
+</div>
 {%- endmacro %}

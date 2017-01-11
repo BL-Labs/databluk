@@ -8,18 +8,18 @@
 <link href="{{ rootoffset }}/css/all-print.css" rel="stylesheet" type="text/css" media="print" />
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ rootoffset }}/css/all-ie-7.css" /><![endif]-->
 <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ rootoffset }}/css/all-ie-8.css" /><![endif]-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <style media="screen" type="text/css">
     .desktop-site .main-page-img div {background-image: url('{{ rootoffset }}/backgrounds/pattern-bg-4.png');  }
 </style>
-<link rel="alternate stylesheet" type="text/css" href="{{ rootoffset }}/css/large-fonts.css" title="BRITISH LIBRARY Large Fonts Style">
+<!-- <link rel="alternate stylesheet" type="text/css" href="{{ rootoffset }}/css/large-fonts.css" title="BRITISH LIBRARY Large Fonts Style"> -->
 
 
 <meta charset="utf-8">
 <link rel="DC.rights copyright" href="http://www.bl.uk/aboutus/terms/index.html" />
 <meta name="e-GMS.accessibility" scheme="WCAG" content="Double-A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
 <meta itemprop="name" content="The British Library">
-<meta itemprop="description" content="{{ dcdescription }}">
+<meta itemprop="description" content="{{ dcdescription |e }}">
 <meta itemprop="logo" content="{{ rootoffset }}/images/bl_logo_100.gif">
 <link href="https://plus.google.com/+britishlibrary" rel="publisher" />
 <meta itemprop="telephone" content="+44 (0)330 333 1144">
@@ -30,23 +30,23 @@
 <meta name="DCTERMS.created" scheme="DCTERMS.W3CDTF" content="{{ dccreated }}" />
 
 <meta name="DC.identifier" content="{{ dcidentifier }}" />
-<meta property="og:url" content="{{ ogurl }}" />
+<meta property="og:url" content="{{ ogurl |e }}" />
  
 <meta name="DC.language" scheme="DCTERMS.ISO639-2" content="eng" />
 <meta name="eGMS.subject.category" scheme="GCL" content="Library and information services; Libraries" />
-<meta name="DC.description" content="{{ dcdescription }}" />
-<meta name="Description" content="{{ dcdescription }}" />
-<meta name="Keywords" content="{{ keywords }}" />
-<meta name="DC.subject" content="{{ keywords }}" />
-<meta name="DC.title" content="{{ title }}" />
-<meta property="og:title" content="{{ title }}" />
+<meta name="DC.description" content="{{ dcdescription |e }}" />
+<meta name="Description" content="{{ dcdescription |e }}" />
+<meta name="Keywords" content="{{ keywords |e }}" />
+<meta name="DC.subject" content="{{ keywords |e }}" />
+<meta name="DC.title" content="{{ title |e }}" />
+<meta property="og:title" content="{{ title  |e}}" />
 <meta property="og:site_name" content="The British Library" />
-<meta property="og:description" content="{{ dcdescription }}" />
+<meta property="og:description" content="{{ dcdescription |e }}" />
 <meta property="og:image" content="http://www.bl.uk/britishlibrary/~/media/subjects%20images/digital%20scholarship/images/drawer.jpg" />
 
 
 
-<link rel="canonical" href="{{ canonicalurl }}" />
+<link rel="canonical" href="{{ canonicalurl |e }}" />
 
 <title>{{ title }}</title>
 
@@ -642,7 +642,7 @@
                     <span class="sp-subtitle">
                         
                     </span>
-                    <span id="ctl00_mastheadtitle">data.bl.uk</span>
+                    <span id="ctl00_mastheadtitle"><a href="http://data.bl.uk">data.bl.uk</a></span>
                     <!--<span>this is masthead-title</span> -->
                 </span>
                 
@@ -806,15 +806,17 @@
 
 <script src="{{ rootoffset }}/js/desktop-scripts.js"></script>
 
+<!--
+<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+-->
 
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">
 var switchTo5x = true;
 stLight.options({ publisher: "ad1af46f-5d2b-4f49-aa8c-10f1ffaecf51", onhover: false, doNotHash: false, doNotCopy: false, hashAddressBar: false });
 </script>
 
 
-    <!-- Begin CMC v2.0 -->
+    <!-- Begin CMC v2.0 ->
 <script type="text/javascript">
 // <![CDATA[
 function sitestat(u){var d=document,l=d.location;ns_pixelUrl=u+"&ns__t="+(new Date().getTime());u=ns_pixelUrl+"&ns_c="+((d.characterSet)?d.characterSet:d.defaultCharset)+"&ns_ti="+escape(d.title)+"&ns_jspageurl="+escape(l&&l.href?l.href:d.URL)+"&ns_referrer="+escape(d.referrer);var m=u.lastIndexOf("&");if(u.length>2000&&m>=0){u=u.substring(0,m+1)+"ns_cut="+u.substring(m+1,u.lastIndexOf("=")).substring(0,40)}(d.images)?new Image().src=u:d.write('<'+'p><'+'img src="'+u+'" height="1" width="1" alt="*"/'+'><'+'/p>');};
@@ -822,7 +824,7 @@ sitestat("http://uk.sitestat.com/bl/subjectsandservices/s?name=collection-guides
 // ]]>
 </script>
 <noscript><p><img src="http://uk.sitestat.com/bl/subjectsandservices/s?name={{ sitestatname }}" height="1" width="1" alt="*"/></p></noscript>
-<!-- End CMC -->
+<! - End CMC -->
 
 
 
