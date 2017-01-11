@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block breadcrumb_nav %} 
+{% endblock %}
+{% block page_title_top %}
+  {{ macros.pagetitle(title, path) }}
+{% endblock %}
+
+{% block content %}
+{% if itemimg %}
+  {{ macros.pageimage(itemimg, itemimgcaption) }}
+{% endif %}
+
+{{ htmldescription or dcdescription }}
+
+{% for dataset in data %}
+  {{ macros.dataset_desc(dataset) }}
+{% endfor %}
+
+{% if curator %}
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+        <aside class="rh-column grid_20 ">
+                
+        <div class="links-block clearfix">
+          <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
+            <h4>Each dataset may have its own licencing conditions and re-use stipulations, so please check their pages for more information.</h4>
+          </div>
+        </div>
+        </aside>
+{% endblock %}

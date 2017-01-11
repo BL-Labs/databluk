@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block breadcrumb_nav %} 
+{% endblock %}
+{% block page_title_top %}
+<!--  {{ macros.pagetitle(title, []) }} -->
+{% endblock %}
+
+{% block content %}
+{% if itemimg %}
+  {{ macros.pageimage(itemimg, itemimgcaption, ".") }}
+{% endif %}
+
+
+<div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+{{ mainpage[1] }}
+</div>
+
+{{ macros.initial_para(dcdescription) }}
+{% for key in cols|sort %}
+  {{ macros.dataset_collection_desc(key, cols, boilerplate_text) }}
+{% endfor %}
+
+{% endblock %}
+
+{% block sidebar %}
+        <aside class="rh-column grid_20 ">
+                
+        <div class="links-block clearfix">
+          <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
+            <h4>Each dataset may have its own licencing conditions and re-use stipulations, so please check their pages for more information.</h4>
+          </div>
+        </div>
+        </aside>
+{% endblock %}
