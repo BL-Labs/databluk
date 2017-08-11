@@ -11,12 +11,14 @@ with open(BOILERPLATE, "r") as csvf:
   csvr = csv.reader(csvf)
   for row in csvr:
     u_row = [unicode(x, encoding="utf-8") for x in row]
-    _TEXTKEY[u_row[0]] = [u_row[1], u_row[2]]
+    _TEXTKEY[u_row[0]] = [u_row[1], u_row[2], u_row[3]]
 
 def render_text(inctext):
-  title, text = inctext
+  title, text, short_text = inctext
   #wrap text in text blocks
-  dtext = u"""     <div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+  # dtext = u"""     <div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
+  #"""
+  dtext = u"""     <div class="tabbed-box p-l-1col clearfix">
 """
   for line in text.split("\n"):
     if line:
@@ -29,7 +31,15 @@ def render_text(inctext):
 """
   dtext += u"     </div>"
   
-  return [title, Markup(dtext), text]
+  short = u"""     <div class="tabbed-box p-l-1col clearfix">
+     <div class="text-block">
+       <p>"""
+  short += short_text
+  short += u"""</p>
+     </div>
+   </div>
+"""
+  return [title, Markup(dtext), text, Markup(short)]
 
 def get_boilerplate(textid):
   if textid in _TEXTKEY and textid not in _TEXTCACHE and _TEXTKEY[textid][0]:
@@ -38,4 +48,4 @@ def get_boilerplate(textid):
   if textid in _TEXTCACHE:
     return _TEXTCACHE[textid]
 
-  return [textid, "No description found.", "No description found."]
+  return [textid, "No description found.", "No description found.", "No description found."]

@@ -2,6 +2,8 @@ import os, sys, shutil
 from jinja2 import Environment, PackageLoader
 import csv
 
+import operator
+
 from boilerplate import get_boilerplate
 
 env = Environment(loader=PackageLoader("dbu", "templates"))
@@ -65,7 +67,9 @@ def basic_item(datapkg):
 
 def base_page(collections):
   datapkg = {'cols': collections}
-  datapkg['boilerplate_text'] = {x:get_boilerplate(x)[0] for x in collections}
+  datapkg['boilerplate_text'] = {x:get_boilerplate(x) for x in collections}
+  cl = {x:datapkg['boilerplate_text'][x][0] for x in collections}
+  datapkg['sorted_list'] = [x for x,v in sorted(cl.items(), key=lambda (k,v): v)]
   datapkg['title'] = u"data.bl.uk"
   datapkg['path'] = ""
   datapkg['dcdescription'] = "A collection of datasets released by the British Library"
@@ -76,7 +80,7 @@ def base_page(collections):
 
 def collection_page(datapkg):
   col_name = datapkg['name']
-  datapkg['readabletitle'], datapkg['htmldescription'], datapkg['dcdescription'] = get_boilerplate(datapkg['name'])
+  datapkg['readabletitle'], datapkg['htmldescription'], datapkg['dcdescription'], datapkg['shorthtmldescription'] = get_boilerplate(datapkg['name'])
   datapkg['title'] = datapkg['readabletitle'] or u"Dataset Collection" 
   datapkg['collection'] = datapkg['name']
   datapkg['path'] = ["/" + datapkg['name']]
@@ -173,7 +177,7 @@ if __name__ == "__main__":
             outp.write(basic_item(datapkg).encode("utf-8"))
       
       for key in sorted(collections.keys()):
-        # crete the collection pages for the datasets
+        # create the collection pages for the datasets
         with open(os.path.join("www", key, "index.html"), "w") as outp:
           datapkg = {'data': collections[key], 'name': key}
           outp.write(collection_page(datapkg).encode("utf-8"))
