@@ -33,7 +33,7 @@
 {% endif %}
 {% if data['doi'] %}
         <dt>DOI<span>:&nbsp;</span></dt><dd>&nbsp;</dd>
-        <dt><a href="https://dx.doi.org/{{ data['doi'] }}">https://dx.doi.org/{{ data['doi'] }}</a></dt>
+        <dt><a href="https://doi.org/{{ data['doi'] }}">https://doi.org/{{ data['doi'] }}</a></dt>
 {% endif %}
     </dl>             
   </div>
@@ -96,7 +96,7 @@
 <p><a href="{{ dset['data']['filename'] }}">Download.</a> Licence:<a href="{{ dset['data']['usage terms'] }}">{{ dset['data']['licence'] }}</a></p>
 {% endif %} 
 {% if dset['data']['doi'] %}
-<p>DOI: <a href="https://dx.doi.org/{{ dset['data']['doi'] }}">https://dx.doi.org/{{ dset['data']['doi'] }}</a></p>
+<p>DOI: <a href="https://doi.org/{{ dset['data']['doi'] }}">https://doi.org/{{ dset['data']['doi'] }}</a></p>
 {% endif %} 
      </div>
 </div>
@@ -106,9 +106,14 @@
 <div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
      <div class="text-block">
 {% if collections[key]|length == 1 %}
-        <h3><a href="/{{ key }}">{{ boilerplate_text[key] }}</a> - 1 dataset.</h3>
+        <h3><a href="/{{ key }}">{{ boilerplate_text[key][0] }}</a></h3>
+        <p><strong>1 dataset.</strong></p>
+		{{ boilerplate_text[key][3] }}
+		
 {% else %}
-        <h3><a href="/{{ key }}">{{ boilerplate_text[key] }}</a> - {{ collections[key] | length }} datasets.</h3>
+        <h3><a href="/{{ key }}">{{ boilerplate_text[key][0] }}</a></h3>
+        <p><strong>{{ collections[key] | length }} datasets.</strong></p>
+		{{ boilerplate_text[key][3] }}
 {% endif %}
      </div>
 </div>

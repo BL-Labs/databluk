@@ -16,7 +16,7 @@
 </div>
 
 {{ macros.initial_para(dcdescription) }}
-{% for key in cols|sort %}
+{% for key in sorted_list %}
   {{ macros.dataset_collection_desc(key, cols, boilerplate_text) }}
 {% endfor %}
 

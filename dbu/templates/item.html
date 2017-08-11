@@ -51,9 +51,10 @@
 {% for fname, fsize, format, licence, llink in zfiles %}
                <ul class="menu">
 			   {% if llink[:4] == "http" %}
-		       <li><a href="{{ fname }}">{{ fname }}</a><span class="sml-txt d-b">{{ fsize }} {{ format }} - <a href="{{ llink }}">{{ licence }}</a></span><br/></li>
+			   {% set fname_short = fname.split("/")[-1] %}
+		       <li><a href="{{ fname }}">{{ fname_short }} <small>(link provided by dataset creator)</small></a><span class="sml-txt d-b">{{ fsize }} {{ format }} </span><strong><a href="{{ llink }}">{{ licence }}</a></strong><br/></li>
 			   {% else %}
-		       <li><a href="{{ fname }}">{{ fname }}</a><span class="sml-txt d-b">{{ fsize }} {{ format }} - {{ licence }}, {{ llink }}</span><br/></li>
+		       <li><a href="{{ fname }}">{{ fname }}</a><span class="sml-txt d-b">{{ fsize }} {{ format }} </span><strong>{{ licence }}, {{ llink }}</strong><br/></li>
 			   {% endif %}
                </ul>
 {% endfor %}
