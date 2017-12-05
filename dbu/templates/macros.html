@@ -10,6 +10,41 @@
  </div>
 {%- endmacro %}
 
+{% macro doi_citation(data) -%}
+
+<form id="doiciteform" action="">
+    <p>Cite this data:</p>
+    <input id="doi" type="hidden" value="{{ data['doi'] }}" />
+    <div class="col-xs-6 col-md-4">
+            <label for="styles">Select Formatting Style:</label>
+            <select id="styles" class="form-control"></select>
+    </div>
+    <div class="col-xs-6 col-md-4">
+            <label for="locales">Select Language and Country:</label>
+            <select id="locales" class="form-control"></select>
+    </div>
+
+    <div class="row top-buffer">
+        </br>
+            <input type="submit" value="Get Citation" class="" />
+    </div>
+</form>
+
+<div class="row top-buffer" id="citation_row">
+
+      <div class="col-md-12">
+        <div id="citation"></div>
+
+      </br>
+        <button class="btn-lg center-block" data-clipboard-target="#citation"  onClick ="_gaq.push(['_trackEvent', 'copytoclipb', 'click', 'Copied Ref', 10, false]);" id="copy_citation">
+            Copy to clipboard
+        </button>
+    </div>
+</div>
+<br/>
+
+{%- endmacro %}
+
 {% macro biblio(data) -%}
   <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
     <dl>        
@@ -90,7 +125,7 @@
 {% macro dataset_desc(dset) -%}
 <div id="tabbed-box_1" class="tabbed-box p-l-1col clearfix">
      <div class="text-block">
-        <h3><a href="{{ dset['canonicalurl'] }}">{{ dset['title'] }}</a></h3>
+        <h4><a href="{{ dset['canonicalurl'] }}">{{ dset['title'] }}</a></h4>
         <p>{{ dset['dcdescription'].split("\n")[0] }}</p>
 {% if dset['data']['filename'] %}
 <p><a href="{{ dset['data']['filename'] }}">Download.</a> Licence:<a href="{{ dset['data']['usage terms'] }}">{{ dset['data']['licence'] }}</a></p>

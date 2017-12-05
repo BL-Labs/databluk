@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block metatags %} 
+<meta name="robots" content="index, nofollow">
+{% endblock %}
+
 {% block breadcrumb_nav %} 
 <div class="second-nav main-bg grid_61 center-item">
     <nav role="navigation">
@@ -40,24 +45,29 @@
 
 {% endblock %}
 
+{% block endscripts %}
+<script src="{{ rootoffset }}/js/doi_citation.js"></script>
+{% endblock %}
+
 {% block sidebar %}
         <aside class="rh-column grid_20 ">
                 
         <div class="links-block clearfix">
             {{ macros.biblio(data) }}
+			{{ macros.doi_citation(data) }}
 {% if filename|length > 0 and filename[0] %}
            <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
              <h3 class="block-title">Download:</h3>
-{% for fname, fsize, format, licence, llink in zfiles %}
                <ul class="menu">
+{% for fname, fsize, format, licence, llink in zfiles %}
 			   {% if llink[:4] == "http" %}
 			   {% set fname_short = fname.split("/")[-1] %}
-		       <li><a href="{{ fname }}">{{ fname_short }} <small>(link provided by dataset creator)</small></a><span class="sml-txt d-b">{{ fsize }} {{ format }} </span><strong><a href="{{ llink }}">{{ licence }}</a></strong><br/></li>
+		       <li><span class="med-txt"><a href="{{ fname }}">{{ fname_short }}</a></span><span class="sml-txt d-b">{{ fsize }} {{ format }} </span><strong><a href="{{ llink }}">{{ licence }}</a></strong></li>
 			   {% else %}
-		       <li><a href="{{ fname }}">{{ fname }}</a><span class="sml-txt d-b">{{ fsize }} {{ format }} </span><strong>{{ licence }}, {{ llink }}</strong><br/></li>
+			   <li><span class="med-txt"><a href="{{ fname }}">{{ fname }}</a></span><span class="sml-txt d-b">{{ fsize }} {{ format }} </span><strong>{{ licence }}, {{ llink }}</strong><br/></li>
 			   {% endif %}
-               </ul>
 {% endfor %}
+               </ul>
            </div>
 {% endif %}
         <div class="table-block p-l-1col vlg-bg dt-wrap p-r-1col">
