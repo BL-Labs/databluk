@@ -15,7 +15,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="{{ rootoffset }}/css/all-print.css" rel="stylesheet" type="text/css" media="print" />
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ rootoffset }}/css/all-ie-7.css" /><![endif]-->
 <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ rootoffset }}/css/all-ie-8.css" /><![endif]-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
 <style media="screen" type="text/css">
     .desktop-site .main-page-img div {background-image: url('{{ rootoffset }}/backgrounds/pattern-bg-4.png');  }
 </style>
@@ -27,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="e-GMS.accessibility" scheme="WCAG" content="Double-A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
 <meta itemprop="name" content="The British Library">
 <meta itemprop="description" content="{{ dcdescription |e }}">
-<meta itemprop="logo" content="{{ rootoffset }}/images/bl_logo_100.gif">
+<meta itemprop="logo" content="{{ rootoffset }}/images/bl_logo.gif">
 <link href="https://plus.google.com/+britishlibrary" rel="publisher" />
 <meta itemprop="telephone" content="+44 (0)330 333 1144">
 <meta itemprop="url" content="http://www.bl.uk">
@@ -51,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:description" content="{{ dcdescription |e }}" />
 <meta property="og:image" content="http://www.bl.uk/britishlibrary/~/media/subjects%20images/digital%20scholarship/images/drawer.jpg" />
 
-
+{% block metatags %}{% endblock %}
 
 <link rel="canonical" href="{{ canonicalurl |e }}" />
 
@@ -89,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div id="main-navigation" class="">
                 <div id="site-logo">
                     <a href="http://www.bl.uk">
-                        <img src="{{ rootoffset }}/images/bl_logo_100.gif" width="52" height="100" alt="THE BRITISH LIBRARY" /></a>
+                        <img src="{{ rootoffset }}/images/bl_logo.gif" width="52" height="100" alt="THE BRITISH LIBRARY" /></a>
                 </div>
                 
 
@@ -803,6 +805,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script src="{{ rootoffset }}/js/desktop-scripts.js"></script>
+
+{% block endscripts %}{% endblock %}
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
